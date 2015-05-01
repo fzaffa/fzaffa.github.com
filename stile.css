@@ -50,6 +50,7 @@ body
 	font-size: 16px;
 	line-height: 1.6em;
 	color: #434343;
+	margin-top: 50px;
 }
 #wrapper
 {
@@ -59,4 +60,5 @@ body
 h1
 {
 	font-size: 2em;
+	margin bottom: 50px;
 }
