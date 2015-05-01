@@ -65,5 +65,9 @@ h1
 h2
 {
 	font-size: 1.3em;
+	font-weight: bold;
 }
+.project-link
+{
+	font-weight: bold;
 }
