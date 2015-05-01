@@ -67,7 +67,9 @@ h2
 	font-size: 1.3em;
 	font-weight: bold;
 }
-.project-link
+.project-link a, .project-link a:visited
 {
 	font-weight: bold;
+	color: #618daf;
+	text-decoration: none;
 }
