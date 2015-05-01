@@ -65,7 +65,12 @@ h1
 h2
 {
 	font-size: 1.3em;
-	font-weight: bold;
+	font-weight: light;
+	color: #618daf;
+}
+h3
+{
+	font-size: 1.1em;
 }
 .project-link a, .project-link a:visited
 {
