@@ -66,11 +66,13 @@ h2
 {
 	font-size: 1.3em;
 	font-weight: light;
-	color: #618daf;
+	color: #464e54;
+	margin-bottom: 1em;
 }
 h3
 {
 	font-size: 1.1em;
+	margin-left: 1em;
 }
 .project-link a, .project-link a:visited
 {
