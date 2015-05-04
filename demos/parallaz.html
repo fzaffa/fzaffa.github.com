@@ -1,14 +1,78 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>
-			Francesco Zaffaroni
-		</title>
-		<link href="../stile.css" rel="stylesheet" type="text/css" />
-	</head>
-	<body>
-		<div id="wrapper">
-			<h1>Parallaz Demo</h1>
-			
-		</div>
-		
-	</body>
+<head>
+	<title>Parallaz.js Demo</title>
+	<style type="text/css">
+.container
+{
+	width: 960px;
+	margin: 0 auto;
+}
+
+body
+{
+	font-size: 1.2em;
+	line-height: 1.4em;
+	font-family: helvetica, sans-serif;
+	padding: 0;
+	margin: 0;
+
+}
+.bg
+{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background: url('./bg.png') fixed;
+	background-position: 50% 0;
+	/*background: #3a3a3a;*/
+	color: white;
+}
+.center
+{
+	text-align: center;
+	margin: 50px;
+}
+
+
+	</style>
+	<script type="text/javascript" src="./parallaz.js">
+	</script>
+
+</head>
+<body>
+<div class="ext">
+<div class="container">
+<h1 class="center">Parallaz.js Demo</h1>
+<p style="margin-bottom: 500px">
+	Scroll to bottom to see the effect.
+</p>
+</div>
+<div class="bg">
+<div class="container">
+<h3>Ciao</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet feugiat est, ut varius ligula pretium in. Sed non sagittis augue. Aenean finibus sem enim, finibus volutpat augue eleifend vitae. Pellentesque interdum tellus in tempus aliquam. Nullam imperdiet dolor ac quam aliquet, et imperdiet est volutpat. Mauris nunc turpis, euismod sed nibh et, pellentesque semper nibh. Nullam efficitur quam at varius ultricies. Nulla eu tortor quis felis luctus dignissim. Sed sodales orci nec diam interdum, nec cursus ex finibus. In vel feugiat est.</p>
+</div>
+</div>
+<div class="container">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet feugiat est, ut varius ligula pretium in. Sed non sagittis augue. Aenean finibus sem enim, finibus volutpat augue eleifend vitae. Pellentesque interdum tellus in tempus aliquam. Nullam imperdiet dolor ac quam aliquet, et imperdiet est volutpat. Mauris nunc turpis, euismod sed nibh et, pellentesque semper nibh. Nullam efficitur quam at varius ultricies. Nulla eu tortor quis felis luctus dignissim. Sed sodales orci nec diam interdum, nec cursus ex finibus. In vel feugiat est.
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet feugiat est, ut varius ligula pretium in. Sed non sagittis augue. Aenean finibus sem enim, finibus volutpat augue eleifend vitae. Pellentesque interdum tellus in tempus aliquam. Nullam imperdiet dolor ac quam aliquet, et imperdiet est volutpat. Mauris nunc turpis, euismod sed nibh et, pellentesque semper nibh. Nullam efficitur quam at varius ultricies. Nulla eu tortor quis felis luctus dignissim. Sed sodales orci nec diam interdum, nec cursus ex finibus. In vel feugiat est.</p>
+</div>
+<div class="bg">
+<div class="container">
+<h3>Ciao</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet feugiat est, ut varius ligula pretium in. Sed non sagittis augue. Aenean finibus sem enim, finibus volutpat augue eleifend vitae. Pellentesque interdum tellus in tempus aliquam. Nullam imperdiet dolor ac quam aliquet, et imperdiet est volutpat. Mauris nunc turpis, euismod sed nibh et, pellentesque semper nibh. Nullam efficitur quam at varius ultricies. Nulla eu tortor quis felis luctus dignissim. Sed sodales orci nec diam interdum, nec cursus ex finibus. In vel feugiat est.</p>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+
+var elm = new Parallaz(
+	document.getElementsByClassName("bg")[0],
+	2
+);
+
+</script>
+</body>
+</html>

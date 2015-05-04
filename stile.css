@@ -71,7 +71,7 @@ h2
 }
 h3
 {
-	font-size: 1.1em;
+	font-size: 1.3em;
 	margin-left: 1em;
 }
 p
@@ -88,4 +88,8 @@ p
 {
 	text-decoration: underline;
 	color: #464e54;
+}
+article
+{
+	margin-bottom: 50px;
 }
