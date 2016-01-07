@@ -1,32 +1,94 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>
-			Francesco Zaffaroni
-		</title>
-		<link href="stile.css" rel="stylesheet" type="text/css" />
-	</head>
-	<body>
-		<div id="wrapper">
-			<h1>Francesco Zaffaroni</h1>
-			<h2>Projects:</h2>
-			<article>
-			<h3>Validator</h3>
-			<p>
-				<span class="project-link">
-					<a href="https://github.com/fzaffa/Validator">fzaffa/Validator:</a>
-				</span>
-				A php library to validate input. There are two versions, one is a single file library, lightweight and quick, the second, in the 0.2-dev branch is more modular and full-featured.
-			</p>
-			</article>
-			<article>
-			<h3>Parallaz</h3>
-			<p>
-				<span class="project-link">
-					<a href="https://github.com/fzaffa/Parallaz">fzaffa/Parallaz:</a>
-				</span>
-				The most lightweight js parallax scroll library. Only for background images. Useful for small websites where no big library is needed. <a href="demos/parallaz.html">Demo.</a>
-			</p>
-			</article>
-		</div>
-		
-	</body>
+<head>
+	<title>Orbiter</title>
+</head>
+<body>
+<div id="app">
+	<table>
+		<tr>
+			<td>Target Orbit</td>
+			<td><input v-model="targetOrbit" number></td>
+		</tr>
+				<tr>
+			<td>Satellites</td>
+			<td><input v-model="satNumber" number></td>
+		</tr>
+		<tr>
+			<td>Semi Major Axis</td>
+			<td>{{targetSemiMajorAxis}}m</td>
+		</tr>
+		<tr>
+			<td>OrbitalPeriod</td>
+			<td>{{parseFloat(targetOrbitalPeriod).toFixed(3)}} s</td>
+		</tr>
+		<tr>
+			<td>OrbitalPeriod</td>
+			<td> {{targetOrbitalPeriodInHMS}}</td>
+		</tr>
+		<tr>
+			<td>Insertion period</td>
+			<td>{{parseFloat(insertionPeriod).toFixed(3)}} s</td>
+		</tr>
+		<tr>
+			<td>Insertion Semi Major Axis</td>
+			<td>{{parseInt(insertionSemiMajorAxis)}}</td>
+		</tr>
+		<tr>
+			<td>Insertion Periapsis</td>
+			<td>{{parseInt(insertionPeriapsis)}}m</td>
+		</tr>
+	</table>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.13/vue.js"></script>
+<script>
+new Vue({
+	el: '#app',
+	data: {
+		targetOrbit: 500000,
+		//apoapsis: 100000,
+		periapsis: 70000,
+		gravParam: 3.5316000*Math.pow(10,12),
+		satNumber: 8
+	},
+	computed:
+	{
+		apoapsis: function() {
+			return this.targetOrbit;
+		},
+		targetAporadii: function() {
+			return this.targetOrbit + 600000;
+		},
+		targetSemiMajorAxis: function () {
+			return this.targetAporadii;
+		},
+		targetOrbitalPeriod: function() {
+			return 2*3.1415*Math.sqrt(Math.pow(this.targetSemiMajorAxis, 3)/this.gravParam);
+		},
+		targetOrbitalPeriodInHMS: function() {
+			var hours = Math.floor(this.targetOrbitalPeriod/3600)
+			var minutes = Math.floor((this.targetOrbitalPeriod%3600)/60)
+			var seconds = Math.floor(this.targetOrbitalPeriod%60)
+			return hours+':'+minutes+':'+seconds;
+		},
+		insertionPeriod: function() {
+			return this.targetOrbitalPeriod/this.satNumber*(this.satNumber-1);
+		},
+		insertionSemiMajorAxis: function(){
+			var num = this.gravParam*Math.pow(this.insertionPeriod, 2)
+			var den = 4*Math.pow(3.1415, 2)
+			return Math.pow(num/den, 1/3);
+		},
+		insertionPeriradii: function()
+		{
+			return 2*(this.insertionSemiMajorAxis-(this.targetAporadii/2));
+		},
+		insertionPeriapsis: function()
+		{
+			return this.insertionPeriradii - 600000;
+		}
+	}
+});
+</script>
+</body>
+</html>
